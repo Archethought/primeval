@@ -1,4 +1,37 @@
-#number_input {
+.enter_number {
 	padding: 25px;
 }
 
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: thin;
+    color: #999;
+
+}
+core-header-panel {
+    height: 60px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 14px;       
+    }
+
+#cards {
+  margin: 0 auto;
+  background: #dedede;
+  overflow: auto;
+  font:inherit;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+paper-card {
+  width: 380px;
+  margin: 8px auto;
+}
+
+paper-card [autofocus] {
+  color: #ff9c33;
+}

@@ -24,16 +24,18 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/primeevalcss.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
         <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
-         <link rel="import" href="bower_components/paper-input/paper-input.html">
+         <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
         <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
         <link rel="import" href="bower_components/paper-card/paper-card.html">
+        <link rel="import" href="bower_components/paper-button/paper-button.html">
         <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="js/primefunctions.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -72,6 +74,41 @@
             paper-card [autofocus] {
               color: #ff9c33;
             }
+
+            #input_card {
+                color: rgba(0,0,0, 81%);
+            }
+
+            .enter_number {
+                padding: 25px;
+            }
+
+            #closest_checker, #number_checker{
+                background-color:#388E3C;
+                color:#fff;
+            }
+
+            #clear{
+                width: 100%;
+            }
+
+            #tip_output {
+                height: 60px;
+                margin-right: 19px;
+                width: 133px;
+                margin-bottom: 8px;
+                font-size: 30px;
+                text-align: center;
+                color: #212121;
+            }
+            #nearest_number {
+                margin-right: 8px;
+                margin-top: -10px;
+                font-size: 14px;
+            }
+            #tip_entry {
+                margin-bottom: 41px;
+            }
         </style>
 
         <title>primeeval</title>
@@ -84,7 +121,7 @@
                 <div>primeval</div>
             </core-toolbar>
          </core-header-panel>
-    
+<!--     
     <div layout vertical center id="cards">
 
         <div id="number_input" class="number_input">
@@ -95,7 +132,7 @@
             <input type="text" id="nearest_number" placeholder="what is the nearest prime number?">
             <input type="submit" id"closest_checker" onclick="check_nearest_prime()">
         </div>
-    </div>
+    </div> -->
 <!--         <paper-card disableSwipe>
           <div content>
             <div>Amount of Bill 
@@ -107,16 +144,48 @@
         </paper-card> -->
         <!-- folding paper card? -->
 
-        <paper-card heading="Not all cards need to be swipeable" disableSwipe></paper-card>
-
-        <paper-card id="shadow_demo" heading="Paper Shadows" headingColor="#e9005f" z="1" animatedShadow>
+        <paper-card id="input-card" heading="Check Prime Numbers" headingColor="#727272" z="1" animatedShadow disableSwipe>
           <div content>
-            Cards can have different shadows.
+            <div layout flex id="cards">
+              <!-- <div layout vertical right id="cards"> -->
+
+                <div id="number_input" class="enter_number">
+                   <!--  <input type="text" id="user_prime" placeholder="is it prime?"> -->
+                      <paper-input-decorator label="Enter Number"> 
+                    <input id="user_prime" is="core-input" class="enter_number">
+                    </paper-input-decorator> 
+                    <!-- <input type="submit" id="number_checker" onclick="check_user_number()"> -->
+                    <paper-button raised id="number_checker" onclick="check_user_number()">
+                        Check number
+                    </paper-button>
+                </div>
+                <div id="number_input" class="enter_number">
+                   <!--  <input type="text" id="nearest_number" placeholder="what is the nearest prime number?"> -->
+                   <div id="tip-row" horizontal layout wrap style="width: 220px" >
+                        <paper-input-decorator flex three label="Tip Amount" id="nearest_number" placeholder="what is the nearest prime number?">
+                            <input is="core-input" class="enter_number" id="tip_entry">
+                        </paper-input-decorator> 
+
+                         <div flex one >
+                            <input type="text" id="tip_output" placeholder="result">
+                        </div> 
+                        <!-- <input type="submit" id"closest_checker" onclick="check_nearest_prime()">  -->
+
+                   </div><!--tip row-->
+                   
+                    <paper-button raised id="closest_checker" onclick="check_nearest_prime()">
+                        Submit
+                    </paper-button>
+                              
+                </div> <!--number input-->
+                
+                </div> 
+            
+               <paper-button id="clear" raised>clear</paper-button>
+        <div>
+      
           </div>
-          <div actions>
-            <paper-button onclick="decreaseShadow()">Decrease</paper-button>
-            <paper-button onclick="increaseShadow()">Increase</paper-button>
-          </div>
+      
         </paper-card>
           
         </div>

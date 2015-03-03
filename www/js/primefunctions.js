@@ -13,8 +13,7 @@ function is_it_prime(n) {
 function closestPrime(n) {
 	if(isNaN(n)) {
 		return "Not a number"
-	} 
-
+	} 	
 	var best_number = prime_numbers[0];
 
 	for (var i=0; i < prime_numbers.length; i++) {
@@ -23,6 +22,7 @@ function closestPrime(n) {
 		}
 	} return best_number;
 }
+
 
 function check_user_number() {
 	var n = document.getElementById("user_prime").value;
@@ -58,4 +58,23 @@ function check_nearest_prime() {
 		alert("This is your nearest number" + best_number);
 	}
 	
+}
+
+// function 
+// 	var p = n*.15 
+// 	console.log(p)
+
+
+function closestPrime(n) {
+	if(isNaN(n)) {
+		return "Not a number"
+	} 
+
+	var best_number = prime_numbers[0];
+
+	for (var i=0; i < prime_numbers.length; i++) {
+		if (Math.abs((p-prime_numbers[i])) < Math.abs((p - best_number)) ){
+			best_number = prime_numbers[i];
+		}
+	} return best_number;
 }
