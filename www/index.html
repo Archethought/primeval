@@ -25,6 +25,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/primeevalcss.css" />
          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +35,7 @@
         <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
         <link rel="import" href="bower_components/paper-card/paper-card.html">
         <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-       
+        <script type="text/javascript" src="js/primefunctions.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
 
@@ -50,12 +51,15 @@
             core-header-panel {
                 height: 60px;
                 color: #fff;
+                letter-spacing: 2px;
+                font-size: 14px;       
                 }
 
             #cards {
               margin: 0 auto;
               background: #dedede;
               overflow: auto;
+              font:inherit;
               -webkit-user-select: none;
               -moz-user-select: none;
             }
@@ -70,20 +74,29 @@
             }
         </style>
 
-        <title>Hello World</title>
+        <title>primeeval</title>
     </head>
 
     <body unresolved>
         
         <core-header-panel flex>
             <core-toolbar>
-                <div>Hello World!</div>
+                <div>primeval</div>
             </core-toolbar>
          </core-header-panel>
     
     <div layout vertical center id="cards">
 
-        <paper-card>
+        <div id="number_input" class="number_input">
+            <input type="text" id="user_prime" placeholder="is it prime?">
+            <input type="submit" id="number_checker" onclick="check_user_number()">
+        </div>
+        <div id="number_input" class="number_input">
+            <input type="text" id="nearest_number" placeholder="what is the nearest prime number?">
+            <input type="submit" id"closest_checker" onclick="check_nearest_prime()">
+        </div>
+    </div>
+<!--         <paper-card disableSwipe>
           <div content>
             <div>Amount of Bill 
               <br><br>
@@ -91,7 +104,8 @@
                <paper-input>tip amount</paper-input>
             </div>
           </div>
-        </paper-card>
+        </paper-card> -->
+        <!-- folding paper card? -->
 
         <paper-card heading="Not all cards need to be swipeable" disableSwipe></paper-card>
 
