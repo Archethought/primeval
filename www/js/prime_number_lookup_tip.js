@@ -97,14 +97,56 @@ function check_nearest_prime() {
 }
 
 function calculateTip(n) {
-    return (n *.15);
+    return  (n *.15);
 }
 
 function primeTip(n) {
-    return closestPrime(calculateTip(n));
+    return closestPrime(calculateTip(n))/100;
+}
+function primeTipPerc(n) {
+    return ((primeTip(n)/n)*10000).toFixed(2);
+}
+function calcTotal(n) {
+    return (primeTip(n) + n/100).toFixed(2);
 }
 
 function primeTipDisplay() {
-    var n = document.getElementById("input_total_for_prime_tip").value;
+    var n = document.getElementById("input_total_for_prime_tip").value*100;
     document.getElementById("output_display").value = primeTip(n);
+    primeTipPercDisplay(n);
+    dispTotal(n);
+}
+
+function primeTipPercDisplay() {
+    var n = document.getElementById("input_total_for_prime_tip").value*100;
+    document.getElementById("output_display2").value = primeTipPerc(n);
+}
+
+function dispTotal() {
+    var n = document.getElementById("input_total_for_prime_tip").value*100;
+    document.getElementById("output_display3").value = calcTotal(n);
+}
+function decreaseTip() {
+    var a = prime_numbers.indexOf(document.getElementById("output_display").value*100);
+    var lessPrime = prime_numbers[a - 1];
+    var oldValue = document.getElementById("input_total_for_prime_tip").value*100;
+    document.getElementById("output_display").value = (lessPrime/100);
+    var n = (lessPrime/100) * 6.666666666666666666666666666666666667;
+    document.getElementById("output_display2").value = primeTipPerc(n);
+    function calcTotal2(n) {
+    return (lessPrime/100 + n/100).toFixed(2);
+}
+    document.getElementById("output_display3").value = calcTotal2(oldValue);
+}
+function increaseTip() {
+    var a = prime_numbers.indexOf(document.getElementById("output_display").value*100);
+    var morePrime = prime_numbers[a + 1];
+    var oldValue = document.getElementById("input_total_for_prime_tip").value*100;
+    document.getElementById("output_display").value = (morePrime/100);
+    var n = (morePrime/100) * 6.666666666666666666666666666666666667;
+    document.getElementById("output_display2").value = primeTipPerc(n);
+    function calcTotal2(n) {
+    return (morePrime/100 + n/100).toFixed(2);
+}
+    document.getElementById("output_display3").value = calcTotal2(oldValue);
 }

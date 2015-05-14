@@ -1,15 +1,126 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: thin;
+    color: #999;
+}
+core-header-panel {
+    height: 60px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 20px;       
+    }
+
 .numberbox {
-    height: 30px;
-    font-size: 25px;
+    height: 47px;
+    font-size: 23px;
+    border-radius: 10px;
+    padding: 10px;
+  	border: solid 1px #dcdcdc;
+  	transition: box-shadow 0.3s, border 0.3s;
+  	color: black;
+  	-webkit-box-shadow: 0px 5px 13px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 5px 13px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 5px 13px rgba(50, 50, 50, 0.75);
+}
+.numberbox.focus {
+	border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
 }
 
 #primechecker {
-    font-size: 50px;
+	color: black;
+	margin: 10px;
+    font-size: 30px;
+    border-radius: 10px;
+    background: rgb(109, 132, 255);
+    -webkit-box-shadow: 0px 5px 13px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 5px 13px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 5px 13px rgba(50, 50, 50, 0.75);
+
 
 }
 
 #cards {
-    height: 40px;
+	vertical-align: middle;
+    height: auto;
     padding: 20px;
     background-color: forestgreen !important;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#description {
+	padding: 2px;
+	color: black;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	background-color: white;
+	border-radius: 20px;
+	text-shadow: 0 1px 0 #ccc;
+	text-decoration: underline;
+}
+p {
+    text-align: center;
+    color: white;
+}
+.outputbox {
+	height: 30px;
+    font-size: 25px;
+}
+#primes {
+	padding-top: 15px;
+}
+
+#output_display {
+    background-color: transparent;
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+}
+#output_display2 {
+    background-color: transparent;
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+}
+#output_display3 {
+    background-color: transparent;
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+}
+#text {
+    text-transform: none;
+    padding: 10px;
+    color: black;
+    font-size: 14px;
+    
+}
+
+.btn {
+    color: black;
+    margin-left: 20px;
+    display: inline-block;
+}
+.btn-mini {
+    border-radius: 5px;
+
+}
+.btn-group {
+    margin-left: 50px;
+    display: inline-block;
+}
+.btn
+}
+#changeTip {
+    float: right;
+    background-color: none;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.details {
+    color: black;
+    float: left;
 }
