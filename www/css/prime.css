@@ -9,8 +9,44 @@ core-header-panel {
     height: 60px;
     color: #fff;
     letter-spacing: 2px;
-    font-size: 20px;       
+    font-size: 15px;
+    width: 100%;
+    
     }
+core-toolbar {
+  margin-bottom: 0px;
+  display: inline-block;
+}
+
+#title {
+  margin-left: -2px;
+  min-width: 100px;
+}
+#num_eval {
+  padding-left: 10px;
+  float: left;
+  border-left: 2px solid #ccc;
+  height: 50%;
+  width: 40%;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 19px;
+  margin-right: 0px;
+  text-decoration: none;
+}
+#tip_eval {
+  padding-left: 10px;
+  float: left;
+  border-left: 2px solid #ccc;
+  height: 50%;
+  width: 40%;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 19px;
+  text-decoration: none;
+}
 
 .numberbox {
     height: 47px;
@@ -42,15 +78,27 @@ core-header-panel {
 
 }
 
-#cards {
-	vertical-align: middle;
+#cards_main {
+    margin-right: 0;
+    margin-top: -30px;
+	  vertical-align: middle;
     height: auto;
     padding: 20px;
     background-color: forestgreen !important;
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 0px 0px 0px 0px;
+}
+#cards {
+  margin-right: 0;
+    vertical-align: middle;
+    height: 50%;
+    padding: 20px;
+    background-color: forestgreen !important;
+    border: 2px solid black;
+    border-radius: 0px;
 }
 #description {
+  width: 100%;
 	padding: 2px;
 	color: black;
 	font-family: 'Roboto', sans-serif;
@@ -60,13 +108,16 @@ core-header-panel {
 	text-shadow: 0 1px 0 #ccc;
 	text-decoration: underline;
 }
-p {
+#inst {
     text-align: center;
     color: white;
 }
 .outputbox {
 	height: 30px;
     font-size: 25px;
+}
+.output_sections {
+    display: inline-block;
 }
 #primes {
 	padding-top: 15px;
@@ -77,27 +128,54 @@ p {
     border-radius: 0px;
     border: none;
     box-shadow: none;
+    width: 25%;
+    margin-left: 0px;
+
+   
 }
 #output_display2 {
     background-color: transparent;
     border-radius: 0px;
     border: none;
     box-shadow: none;
+    width: 25%;
+    margin-top: 20px;
+    margin-left: -26px;
 }
 #output_display3 {
     background-color: transparent;
     border-radius: 0px;
     border: none;
     box-shadow: none;
+    width: 25%;
+    margin-top: 15px;
+    margin-left: -10px;
 }
 #text {
     text-transform: none;
     padding: 10px;
     color: black;
     font-size: 14px;
-    
 }
-
+/*.symbol {
+    background-color: none;
+    width: 20px;
+    font-size: 25px;
+    color: black;
+    margin-bottom: -40px;
+}
+#perc {
+    margin-top: 20px;
+    margin-bottom: -60px;
+    margin-left: -65px;
+    background-color: none;
+}
+#tot_symbol {
+    margin-bottom: -55px;
+    margin-left: -48px;
+    margin-top: 20px;
+}
+*/
 .btn {
     color: black;
     margin-left: 20px;
@@ -123,4 +201,57 @@ p {
 .details {
     color: black;
     float: left;
+}
+.image_icon {
+    width: 30px;
+    float: right;
+    visibility: hidden;
+}
+#prime_img {
+    visibility: hidden;
+    margin-top: 12px;
+}
+#perc_img {
+    visibility: hidden;
+    margin-top: 35px;
+}
+#total_img {
+    visibility: hidden;
+    margin-top: 35px;
+}
+.symbol {
+    width: 25px;
+}
+#dollar_img1 {
+    margin-right: -12px;
+    margin-left: 43px;
+    margin-top: -8px;
+    margin-bottom: -4px;
+}
+#dollar_img2 {
+    margin-left: -5px;
+    margin-top: -8px;
+    margin-bottom: -4px;
+}
+#percent_img {
+    padding-right: 19px;
+    margin-left: -25px;
+    margin-bottom: -5px;
+}
+.text_icon{
+    visibility: hidden;
+    height: 26px;
+    float: right;
+}
+#its_prime {
+    margin-top: 13px;
+}
+#not_prime1 {
+    margin-top: 35px;
+}
+#not_prime2 {
+    margin-top: 35px;
+}
+.btn-group {
+    width: 100%;
 }

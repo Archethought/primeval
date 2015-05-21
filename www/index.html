@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html flex>
 <head>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
@@ -8,6 +9,9 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/prime.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,16 +19,17 @@
     <link rel="import" href="bower_components/paper-input/paper-input.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="bower_components/paper-card/paper-card.html">
-    <link rel="import" href="bower_components/components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+
     <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/prime_number_lookup_tip.js"></script>
+    
+
 
     <style>
         html, body {
@@ -61,17 +66,24 @@
     <title>Prime Number Tip Calculator</title>
 </head>
 
-<body unresolved>
+<body unresolved flex>
+    
 
     <core-header-panel flex>
         <core-toolbar>
 
-            <div>PRIMEVAL</div>
+            <div id="title">PRIMEVAL</div>
+            <div id="tip_eval">
+                <paper-button>Tip Eval</paper-button>
+            </div>
             
+            <div id="num_eval"onclick="window.open('index2.html', '_blank');">
+                <paper-button onclick="window.open('index2.html', '_blank');">Number Eval</paper-button>
+            </div>
         </core-toolbar>
     </core-header-panel>
 
-    <div layout vertical center id="cards">
+    <div layout vertical center id="cards_main" flex>
         <h1 id="description"> Prime Tip Finder </h1>
         <p id="inst"> Enter Sub-total to calculate a prime number tip.</p>
         <div id="primes">
@@ -90,35 +102,37 @@
                     <button class="button" type="submit" > <</button>
                 </div>-->
             </div>
-            <input type="text" id="output_display" class="numberbox" placeholder="" disabled>
+            <!--<div class="output_sections">
+                <p class="symbol">$</p>-->
+                <img class="symbol" id="dollar_img1" src="img/Dollar.png">
+                <input type="text" id="output_display" class="numberbox" placeholder="" disabled>
+                <img class="image_icon" id="prime_img" src="img/check.ico">
+                <img class="text_icon" id="its_prime" src="img/Its-Prime(1).png">
+            <!--</div>-->
             <div id="text">
-            <p class="details">Percent=</p>
+                <p class="details">Percent=</p>
             </div>
-            <input type="text" id="output_display2" class="numberbox" placeholder="" disabled>
+            <!--<div class="output_sections">
+                <p class="symbol" id="perc">%</p>-->
+                <img class="symbol" id="percent_img" src="img/Percent.png">
+                <input type="text" id="output_display2" class="numberbox" placeholder="" disabled>
+                <img class="image_icon" id="perc_img" src="img/x.png">
+                <img class="text_icon" id="not_prime1" src="img/Not-Prime.png">
+            <!--</div>-->
             <div id="text">
-            <p class="details">Total=</p>
+                <p class="details">Total=</p>
             </div>
-            <input type="text" id="output_display3" class="numberbox" placeholder="" disabled>
+            <!--<div class="output_sections">
+                <p class="symbol" id="tot_symbol">$</p>-->
+                <img class="symbol" id="dollar_img2" src="img/Dollar.png">
+                <input type="text" id="output_display3" class="numberbox" placeholder="" disabled>
+                <img class="image_icon" id="total_img" src="img/x.png">
+                <img class="text_icon" id="not_prime2" src="img/Not-Prime.png">
+            <!--</div>-->
         
 
         </div>
-    </div>
 
-    <div layout vertical center id="cards">
-        <h1 id="description"> Nearest Prime </h1>
-        <p id="inst"> Enter a number to find the nearest prime. </p>
-        <div id="primes">
-            <input type="numberDecimal" min="0" id="nearest_prime_number" class="numberbox" placeholder="Enter Number">
-            <input type="submit" value="Find" id="primechecker" onclick="check_nearest_prime()">
-        </div>
     </div>
-    <div layout vertical center id="cards">
-        <h1 id="description"> Prime Checker </h1>
-        <p id="inst"> Enter a number to check if it is prime. </p>
-        <div id="primes">
-                <input type="numberDecimal" min="0" id="usernumber" class="numberbox" placeholder="Enter Number">
-           
-            <input type="submit" value="Check" id="primechecker" onClick="check_user_number()">
-        </div> 
 </body>
 </html>

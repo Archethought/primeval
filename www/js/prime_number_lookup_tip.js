@@ -1,5 +1,6 @@
 /** Created by Krizia on 3/2/15. */
 
+
 var prime_numbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101,
     103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229,
     233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373,
@@ -61,6 +62,12 @@ var prime_numbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53,
     9643, 9649, 9661, 9677, 9679, 9689, 9697, 9719, 9721, 9733, 9739, 9743, 9749, 9767, 9769, 9781, 9787, 9791, 9803, 9811,
     9817, 9829, 9833, 9839, 9851, 9857, 9859, 9871, 9883, 9887, 9901, 9907, 9923, 9929, 9931, 9941, 9949, 9967, 9973];
 
+/*var output_1 = document.getElementById("output_display");
+var output_2 = document.getElementById("output_display2");
+var output_3 = document.getElementById("output_display3");
+*/
+
+
 function is_it_prime(n) {
     return (prime_numbers.indexOf(n) >= 0)
 }
@@ -109,12 +116,49 @@ function primeTipPerc(n) {
 function calcTotal(n) {
     return (primeTip(n) + n/100).toFixed(2);
 }
+function image_disp() {
+    document.getElementById("prime_img").style.visibility = "visible";
+    document.getElementById("perc_img").style.visibility = "visible";
+    document.getElementById("total_img").style.visibility = "visible";
+    document.getElementById('its_prime').style.visibility = "visible";
+    document.getElementById('not_prime1').style.visibility = "visible";
+    document.getElementById('not_prime2').style.visibility = "visible";
+    document.getElementById("perc_img").src = "img/x.png";
+    document.getElementById("total_img").src = "img/x.png";
+    document.getElementById("not_prime1").src = "img/Not-Prime.png";
+    document.getElementById("not_prime2").src = "img/Not-Prime.png";
+    var disp_1 = document.getElementById("output_display").value*100;
+    var disp_2 = document.getElementById("output_display2").value*100;
+    var disp_3 = document.getElementById("output_display3").value*100;
+    for (var i = 0; i < prime_numbers.length; i++) {
+        console.log(disp_2);
+        if (disp_2 == prime_numbers[i]) {
+            document.getElementById("perc_img").src = "img/check.ico";
+            document.getElementById("not_prime1").src = "img/Its-Prime(1).png";
+        }
+        if (disp_3 == prime_numbers[i]) {
+            document.getElementById("total_img").src = "img/check.ico";
+            document.getElementById("not_prime2").src = "img/Its-Prime(1).png";
+        }
+    }
+}
+var primes =[];
+function appendIndex(n) {
+    if (n > 0) {
+    primes.push(n-1);
+    console.log(primes);
+    }
+}
 
 function primeTipDisplay() {
+    console.log("sdfs");
     var n = document.getElementById("input_total_for_prime_tip").value*100;
     document.getElementById("output_display").value = primeTip(n);
     primeTipPercDisplay(n);
     dispTotal(n);
+    var a = prime_numbers.indexOf(document.getElementById("output_display").value*100);
+    appendIndex(a);
+    image_disp();
 }
 
 function primeTipPercDisplay() {
@@ -128,25 +172,57 @@ function dispTotal() {
 }
 function decreaseTip() {
     var a = prime_numbers.indexOf(document.getElementById("output_display").value*100);
-    var lessPrime = prime_numbers[a - 1];
+    var lessPrime = prime_numbers[parseInt(a) - 1];
     var oldValue = document.getElementById("input_total_for_prime_tip").value*100;
     document.getElementById("output_display").value = (lessPrime/100);
-    var n = (lessPrime/100) * 6.666666666666666666666666666666666667;
-    document.getElementById("output_display2").value = primeTipPerc(n);
+    var n = ((lessPrime/oldValue)*100).toFixed(2);
+    document.getElementById("output_display2").value = n*1;
+    console.log("outside function");
     function calcTotal2(n) {
+        console.log("dddffksdfkjsdkfksjdfl");
     return (lessPrime/100 + n/100).toFixed(2);
-}
+    }
     document.getElementById("output_display3").value = calcTotal2(oldValue);
+    appendIndex(a);
+    if (isNaN(document.getElementById("output_display").value)) {
+        document.getElementById("output_display").value = prime_numbers[primes[primes.length-1]-1]/100;
+        var lessPrime2 = document.getElementById("output_display").value*100;
+        console.log(lessPrime2);
+        console.log(oldValue);
+        var n2 = ((lessPrime2/oldValue)*100).toFixed(2);
+        document.getElementById("output_display2").value = n2*1;
+        function calcTotal3(n2) {
+        return (lessPrime2/100 + n2/100).toFixed(2);
+        }
+        document.getElementById("output_display3").value = calcTotal3(oldValue);
+    }
+    image_disp();
+
 }
+
 function increaseTip() {
     var a = prime_numbers.indexOf(document.getElementById("output_display").value*100);
     var morePrime = prime_numbers[a + 1];
     var oldValue = document.getElementById("input_total_for_prime_tip").value*100;
     document.getElementById("output_display").value = (morePrime/100);
-    var n = (morePrime/100) * 6.666666666666666666666666666666666667;
-    document.getElementById("output_display2").value = primeTipPerc(n);
+    var n = ((morePrime/oldValue)*100).toFixed(2);
+    document.getElementById("output_display2").value = n*1;
     function calcTotal2(n) {
     return (morePrime/100 + n/100).toFixed(2);
-}
+    }
     document.getElementById("output_display3").value = calcTotal2(oldValue);
+    appendIndex(a);
+    if (document.getElementById("output_display").value <= .02) {
+        document.getElementById("output_display").value = prime_numbers[primes[primes.length-1]+3]/100;
+        var morePrime2 = document.getElementById("output_display").value*100;
+        console.log(morePrime2);
+        console.log(oldValue);
+        var n2 = ((morePrime2/oldValue)*100).toFixed(2);
+        document.getElementById("output_display2").value = n2*1;
+        function calcTotal3(n2) {
+        return (morePrime2/100 + n2/100).toFixed(2);
+        }
+        document.getElementById("output_display3").value = calcTotal3(oldValue);
+    }
+    image_disp();
 }
