@@ -1,194 +1,138 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<html flex>
+<head>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/prime.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/paper-card/paper-card.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/prime_number_lookup_tip.js"></script>
+    
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/primeevalcss.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        
-         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-        <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
-         <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
-        <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-        <link rel="import" href="bower_components/paper-card/paper-card.html">
-        <link rel="import" href="bower_components/paper-button/paper-button.html">
-        <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="js/primefunctions.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
 
-        <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-                font-family: 'Roboto', sans-serif;
-                font-weight: thin;
-                color: #999;
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: thin;
+            color: #999;
 
-            }
-            core-header-panel {
-                height: 60px;
-                color: #fff;
-                letter-spacing: 2px;
-                font-size: 14px;       
-                }
+        }
+        core-header-panel {
+            height: 100px;
+            color: #fff;
+        }
 
-            #cards {
-              margin: 0 auto;
-              background: #dedede;
-              overflow: auto;
-              font:inherit;
-              -webkit-user-select: none;
-              -moz-user-select: none;
-            }
+        #cards {
+            margin: 0 auto;
+            background: #dedede;
+            overflow: auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
 
-            paper-card {
-              width: 380px;
-              margin: 8px auto;
-            }
+        paper-card {
+            width: 380px;
+            margin: 8px auto;
+        }
 
-            paper-card [autofocus] {
-              color: #ff9c33;
-            }
+        paper-card [autofocus] {
+            color: #ff9c33;
+        }
+    </style>
 
-            #input_card {
-                color: rgba(0,0,0, 81%);
-            }
+    <title>Prime Number Tip Calculator</title>
+</head>
 
-            .enter_number {
-                padding: 25px;
-            }
+<body unresolved flex>
+    
 
-            #closest_checker, #number_checker{
-                background-color:#388E3C;
-                color:#fff;
-            }
+    <core-header-panel flex>
+        <core-toolbar>
 
-            #clear{
-                width: 100%;
-            }
-
-            #tip_output {
-                height: 60px;
-                margin-right: 19px;
-                width: 133px;
-                margin-bottom: 8px;
-                font-size: 30px;
-                text-align: center;
-                color: #212121;
-            }
-            #nearest_number {
-                margin-right: 8px;
-                margin-top: -10px;
-                font-size: 14px;
-            }
-            #tip_entry {
-                margin-bottom: 41px;
-            }
-        </style>
-
-        <title>primeeval</title>
-    </head>
-
-    <body unresolved>
-        
-        <core-header-panel flex>
-            <core-toolbar>
-                <div>primeval</div>
-            </core-toolbar>
-         </core-header-panel>
-<!--     
-    <div layout vertical center id="cards">
-
-        <div id="number_input" class="number_input">
-            <input type="text" id="user_prime" placeholder="is it prime?">
-            <input type="submit" id="number_checker" onclick="check_user_number()">
-        </div>
-        <div id="number_input" class="number_input">
-            <input type="text" id="nearest_number" placeholder="what is the nearest prime number?">
-            <input type="submit" id"closest_checker" onclick="check_nearest_prime()">
-        </div>
-    </div> -->
-<!--         <paper-card disableSwipe>
-          <div content>
-            <div>Amount of Bill 
-              <br><br>
-              <b>Swipe me!</b>
-               <paper-input>tip amount</paper-input>
+            <div id="title">PRIMEVAL</div>
+            <div id="tip_eval">
+                <paper-button>Tip Eval</paper-button>
             </div>
-          </div>
-        </paper-card> -->
-        <!-- folding paper card? -->
-
-        <paper-card id="input-card" heading="Check Prime Numbers" headingColor="#727272" z="1" animatedShadow disableSwipe>
-          <div content>
-            <div layout flex id="cards">
-              <!-- <div layout vertical right id="cards"> -->
-
-                <div id="number_input" class="enter_number">
-                   <!--  <input type="text" id="user_prime" placeholder="is it prime?"> -->
-                      <paper-input-decorator label="Enter Number"> 
-                    <input id="user_prime" is="core-input" class="enter_number">
-                    </paper-input-decorator> 
-                    <!-- <input type="submit" id="number_checker" onclick="check_user_number()"> -->
-                    <paper-button raised id="number_checker" onclick="check_user_number()">
-                        Check number
-                    </paper-button>
-                </div>
-                <div id="number_input" class="enter_number">
-                   <!--  <input type="text" id="nearest_number" placeholder="what is the nearest prime number?"> -->
-                   <div id="tip-row" horizontal layout wrap style="width: 220px" >
-                        <paper-input-decorator flex three label="Tip Amount" id="nearest_number" placeholder="what is the nearest prime number?">
-                            <input is="core-input" class="enter_number" id="tip_entry">
-                        </paper-input-decorator> 
-
-                         <div flex one >
-                            <input type="text" id="tip_output" placeholder="result">
-                        </div> 
-                        <!-- <input type="submit" id"closest_checker" onclick="check_nearest_prime()">  -->
-
-                   </div><!--tip row-->
-                   
-                    <paper-button raised id="closest_checker" onclick="check_nearest_prime()">
-                        Submit
-                    </paper-button>
-                              
-                </div> <!--number input-->
-                
-                </div> 
             
-               <paper-button id="clear" raised>clear</paper-button>
-        <div>
-      
-          </div>
-      
-        </paper-card>
-          
+            <div id="num_eval"onclick="window.open('index2.html', '_blank');">
+                <paper-button onclick="window.open('index2.html', '_blank');">Number Eval</paper-button>
+            </div>
+        </core-toolbar>
+    </core-header-panel>
+
+    <div layout vertical center id="cards_main" flex>
+        <h1 id="description"> Prime Tip Finder </h1>
+        <p id="inst"> Enter Sub-total to calculate a prime number tip.</p>
+        <div id="primes">
+            <input type="numberDecimal" min="0" id="input_total_for_prime_tip" class="numberbox" placeholder="Enter Sub-Total">
+            <input type="submit" value="Submit" id="primechecker" onclick="primeTipDisplay()">
+            <div id="text">
+            <p class="details">Tip=</p>
+                <span class="btn-group">
+                    <button class="btn btn-mini" onclick="decreaseTip()"> < </button>
+                    <p class="btn text" style="font-size: 10px;"> Change Tip </p>
+                    <button class="btn btn-mini" onclick="increaseTip()"> > </button>
+                </span>
+                <!--<div class="button">
+                    <button class="button" type="submit"  >></button>
+                    <h4 class="button" id="changeTip">Change Tip</h4>
+                    <button class="button" type="submit" > <</button>
+                </div>-->
+            </div>
+            <!--<div class="output_sections">
+                <p class="symbol">$</p>-->
+                <img class="symbol" id="dollar_img1" src="img/Dollar.png">
+                <input type="text" id="output_display" class="numberbox" placeholder="" disabled>
+                <img class="image_icon" id="prime_img" src="img/check.ico">
+                <img class="text_icon" id="its_prime" src="img/Its-Prime(1).png">
+            <!--</div>-->
+            <div id="text">
+                <p class="details">Percent=</p>
+            </div>
+            <!--<div class="output_sections">
+                <p class="symbol" id="perc">%</p>-->
+                <img class="symbol" id="percent_img" src="img/Percent.png">
+                <input type="text" id="output_display2" class="numberbox" placeholder="" disabled>
+                <img class="image_icon" id="perc_img" src="img/x.png">
+                <img class="text_icon" id="not_prime1" src="img/Not-Prime.png">
+            <!--</div>-->
+            <div id="text">
+                <p class="details">Total=</p>
+            </div>
+            <!--<div class="output_sections">
+                <p class="symbol" id="tot_symbol">$</p>-->
+                <img class="symbol" id="dollar_img2" src="img/Dollar.png">
+                <input type="text" id="output_display3" class="numberbox" placeholder="" disabled>
+                <img class="image_icon" id="total_img" src="img/x.png">
+                <img class="text_icon" id="not_prime2" src="img/Not-Prime.png">
+            <!--</div>-->
+        
+
         </div>
 
-    </body>
+    </div>
+</body>
 </html>
